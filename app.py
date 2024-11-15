@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import os
+
 from dash import dcc, html
 from dash.dependencies import Input, Output
 
@@ -240,5 +242,7 @@ def update_inset_corsica(selected_criteria):
 
 # Run Dash app
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port)
+    #app.run_server(debug=True)
                                 
